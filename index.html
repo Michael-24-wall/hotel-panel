@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shalom Hotel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head class="bg-gray-700">
+<!-- Sticky Navbar -->
+  <nav class="bg-grey shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+          <img src="" class="h-8 w-8 mr-2" alt="Logo" />
+          <span class="text-xl font-bold text-blue-600">Shalom Hotel</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600">Services</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+
+        <!-- Login Button -->
+        <div class="hidden md:flex">
+          <a href="#login" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</a>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+      <a href="#login" class="block mt-2 text-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Login</a>
+    </div>
+  </nav>
+<body>
+   
+    
+
+    <script src="hotel.js"></script>
+</body>
+</html>
