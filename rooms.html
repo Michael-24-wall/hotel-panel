@@ -1,0 +1,49 @@
+<!-- Dashboard Wrapper -->
+<div class="flex flex-col md:flex-row h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-full md:w-64 bg-blue-900 text-white p-6 space-y-4">
+    <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+    <nav class="space-y-2">
+      <a href="#" class="block hover:text-yellow-300">🏠 Overview</a>
+      <a href="#" class="block hover:text-yellow-300">🛏 Rooms</a>
+      <a href="#" class="block hover:text-yellow-300">📅 Bookings</a>
+      <a href="#" class="block hover:text-yellow-300">👥 Customers</a>
+      <a href="#" class="block hover:text-yellow-300">📄 Reports</a>
+      <a href="#" class="block hover:text-yellow-300">⚙ Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Dashboard Content with Background Image -->
+  <main class="flex-1 relative overflow-y-auto">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://images.unsplash.com/photo-1501117716987-c8e1ecb210d1?auto=format&fit=crop&w=1600&q=80');"></div>
+
+    <!-- Dark Overlay for readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <!-- Foreground content -->
+    <div class="relative z-20 p-6 text-white h-full overflow-y-auto">
+      <h1 class="text-4xl font-bold mb-4">Welcome to Shalom Hotel Dashboard</h1>
+      <p class="text-lg text-gray-300">Manage your bookings, customers, and room availability with ease.</p>
+
+      <!-- Dashboard Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow text-white">
+          <h2 class="text-xl font-semibold">Total Rooms</h2>
+          <p class="text-3xl mt-2 font-bold">45</p>
+        </div>
+        <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow text-white">
+          <h2 class="text-xl font-semibold">Booked</h2>
+          <p class="text-3xl mt-2 font-bold">30</p>
+        </div>
+        <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow text-white">
+          <h2 class="text-xl font-semibold">Available</h2>
+          <p class="text-3xl mt-2 font-bold">15</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
