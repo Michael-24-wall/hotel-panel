@@ -2,187 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shalom Hotel Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Management</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('-translate-x-full');
+      document.getElementById('pageContent').classList.toggle('lg:ml-64');
+    }
+  </script>
 </head>
-<body class="bg-white">
+<body class="bg-gray-100">
 
-  <!-- ✅ Sticky Full Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50 w-full">
-    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-        <img src="hotel.jpg" class="h-8 w-8" alt="Hotel" />
-        <span class="text-xl font-bold text-blue-600">Shalom Hotel</span>
-      </div>
+  <!-- Sidebar -->
+  <div id="sidebar" class="bg-gray-900 text-white w-64 h-full fixed top-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40">
+    <ul class="space-y-4 p-6 text-white mt-16">
+      <a href="fontdesk.html"><li class="hover:text-blue-600 cursor-pointer">Frontdesk</li></a>
+      <li class="hover:text-blue-600 cursor-pointer">Progress</li>
+      <li class="hover:text-blue-600 cursor-pointer">Request Handling</li>
+      <li class="hover:text-blue-600 cursor-pointer">Maintenance</li>
+      <li class="hover:text-blue-600 cursor-pointer">Service Usage</li>
+      <li class="hover:text-blue-600 cursor-pointer">Contacts</li>
+      <li class="hover:text-blue-600 cursor-pointer">Payments</li>
+      <li class="hover:text-blue-600 cursor-pointer">Restaurants</li>
+      <li class="hover:text-blue-600 cursor-pointer">Rooms</li>
+      <li class="hover:text-blue-600 cursor-pointer">Configuration</li>
+      <li class="hover:text-blue-600 cursor-pointer">Rate Types</li>
+      <li class="hover:text-blue-600 cursor-pointer">Services</li>
+      <li class="hover:text-blue-600 cursor-pointer">Taxes</li>
+      <li class="hover:text-blue-600 cursor-pointer">Staffs</li>
+      <li class="hover:text-blue-600 cursor-pointer">Tables</li>
+      <li class="hover:text-blue-600 cursor-pointer">Settings</li>
+      <li class="hover:text-blue-600 cursor-pointer">Logout</li>
+    </ul>
+  </div>
 
-      <!-- Navigation Links (Desktop) -->
-      <div class="hidden md:flex space-x-6">
-        <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600">Services</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
-      </div>
+  <!-- Page Content -->
+  <div id="pageContent" class="transition-all duration-300 ease-in-out">
 
-      <!-- Search + Profile -->
-      <div class="hidden md:flex items-center space-x-4">
-        <!-- Search -->
-        <div class="relative">
-          <input type="text" placeholder="Search..."
-                 class="pl-10 pr-4 py-1.5 rounded bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400">
-          <svg class="w-4 h-4 absolute left-3 top-2.5 text-gray-500" fill="none" stroke="currentColor"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 21l-4.35-4.35M16.65 16.65a7 7 0 111.415-1.415l4.35 4.35"></path>
-          </svg>
-        </div>
-        <!-- Profile -->
-        <img src="https://i.pravatar.cc/150?img=32" class="h-10 w-10 rounded-full border-2 border-blue-600" alt="User" />
-      </div>
-
-      <!-- Hamburger (Mobile) -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-gray-700">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6h16M4 12h16M4 18h16" />
+    <!-- Navbar -->
+    <nav class="bg-gray-900 shadow-md fixed w-full top-0 z-50 flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-4">
+        <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
+        <div class="text-xl font-bold text-white">Shalom Hotel</div>
+      </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <div class="pt-24 px-4 sm:px-6 lg:px-8 min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('hotel.jpg');">
+      <div class="max-w-7xl mx-auto mb-8 bg-white/80 backdrop-blur-md p-6 rounded-xl shadow">
+        <h2 class="text-2xl font-bold text-blue-900">Welcome Back, Manager 👋</h2>
+        <p class="text-gray-700 mt-2">Here’s what’s happening at your hotel today.</p>
+      </div>
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div class="bg-white/80 backdrop-blur-md p-5 rounded-lg shadow-md">
+          <h4 class="text-sm text-gray-600">Available Rooms</h4>
+          <p class="text-2xl font-bold text-blue-800">34</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur-md p-5 rounded-lg shadow-md">
+          <h4 class="text-sm text-gray-600">Guests Checked-in</h4>
+          <p class="text-2xl font-bold text-blue-800">18</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur-md p-5 rounded-lg shadow-md">
+          <h4 class="text-sm text-gray-600">Pending Requests</h4>
+          <p class="text-2xl font-bold text-yellow-600">5</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur-md p-5 rounded-lg shadow-md">
+          <h4 class="text-sm text-gray-600">Today’s Revenue</h4>
+          <p class="text-2xl font-bold text-green-600">KSh 45,000</p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 pb-10">
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Recent Bookings</h3>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li class="flex justify-between border-b pb-2">Room 204 <span>✔ Paid</span></li>
+            <li class="flex justify-between border-b pb-2">Room 105 <span class="text-red-500">Pending</span></li>
+            <li class="flex justify-between border-b pb-2">Room 301 <span>✔ Paid</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Staff Notices</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            ⏰ Team meeting at 10:00 AM<br>
+            🛠 Maintenance in Room 108<br>
+            💼 Manager visiting from HQ
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-      <a href="#" class="block text-gray-700 hover:text-blue-600">Home</a>
-      <a href="#" class="block text-gray-700 hover:text-blue-600">Services</a>
-      <a href="#" class="block text-gray-700 hover:text-blue-600">About</a>
-      <a href="#" class="block text-gray-700 hover:text-blue-600">Contact</a>
-      <div class="flex items-center space-x-2 mt-2">
-        <img src="https://i.pravatar.cc/150?img=32" class="h-8 w-8 rounded-full border-2 border-blue-600" alt="User" />
-        <span class="text-gray-700">Manager</span>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-semibold mb-4">🏨 Wallance Hotel</h4>
+          <p class="text-sm text-gray-300">
+            Welcome to Wallance Hotel Management System. A smart way to manage guests, rooms, payments and services all in one dashboard.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:underline">Dashboard</a></li>
+            <li><a href="#" class="hover:underline">Rooms</a></li>
+            <li><a href="#" class="hover:underline">Payments</a></li>
+            <li><a href="#" class="hover:underline">Bookings</a></li>
+            <li><a href="#" class="hover:underline">Restaurant</a></li>
+            <li><a href="#" class="hover:underline">Maintenance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:underline">Laundry</a></li>
+            <li><a href="#" class="hover:underline">Spa & Wellness</a></li>
+            <li><a href="#" class="hover:underline">Room Service</a></li>
+            <li><a href="#" class="hover:underline">Taxi Request</a></li>
+            <li><a href="#" class="hover:underline">Conference Rooms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Contact Us</h4>
+          <p class="text-sm text-gray-300 mb-2">📍 Nairobi, Kenya</p>
+          <p class="text-sm text-gray-300 mb-2">📞 +254 712 345 678</p>
+          <p class="text-sm text-gray-300 mb-4">✉️ info@wallancehotel.co.ke</p>
+        </div>
       </div>
-    </div>
-  </nav>
+      <div class="text-center text-sm text-gray-400 py-4 border-t border-gray-700">
+        &copy; 2025 Wallance Hotel. All rights reserved.
+      </div>
+    </footer>
 
- 
-  
-   <!-- 🔵 Toggle Line under Navbar -->
-<div class="bg-blue-900 text-white cursor-pointer px-4 py-2 text-sm font-semibold" id="MenuToggle">
-  ☰ Dashboard Menu
-</div>
-
-<!-- 🔵 Dashboard Dropdown Menu (initially hidden) -->
-<div id="dashboardMenu" class="hidden bg-blue-800 text-white px-6 py-4 space-y-2 shadow-md">
-  <a href="#" class="block hover:text-yellow-300">🏠 Overview</a>
-  <a href="#" class="block hover:text-yellow-300">🛏 Rooms</a>
-  <a href="#" class="block hover:text-yellow-300">📅 Bookings</a>
-  <a href="#" class="block hover:text-yellow-300">👥 Customers</a>
-  <a href="#" class="block hover:text-yellow-300">📄 Reports</a>
-  <a href="#" class="block hover:text-yellow-300">⚙ Settings</a>
-</div>
-
-<!-- ✅ Your dashboard content starts below -->
-<div class="p-6">
-  <h1 class="text-3xl font-bold text-gray-800">Welcome to Shalom Hotel Dashboard</h1>
-  <!-- Continue dashboard cards or content here -->
-</div>
-<!-- ✅ Website Body Background Image (starts below navbar and menu toggle) -->
-<div class="relative min-h-screen overflow-hidden">
-
-  <!-- 🔵 Background Image -->
-  <div class="absolute inset-0 bg-cover bg-center z-0"
-       style="background-image: url('hotel.jpg');">
   </div>
-
-  <!-- 🔵 Overlay (for readability) -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-
-  <!-- 🔵 Foreground Content -->
-  <div class="relative z-20 p-6 sm:p-10 text-white">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to Shalom Hotel</h1>
-    <p class="text-lg text-gray-200 mb-6 max-w-2xl">
-      Experience luxury, comfort, and hospitality. Manage bookings, view reports, and more from your hotel dashboard.
-    </p>
-
-    <!-- Example Stats / Sections -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
-        <h2 class="text-xl font-semibold">Total Rooms</h2>
-        <p class="text-3xl mt-2 font-bold">45</p>
-      </div>
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
-        <h2 class="text-xl font-semibold">Booked</h2>
-        <p class="text-3xl mt-2 font-bold">30</p>
-      </div>
-      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
-        <h2 class="text-xl font-semibold">Available</h2>
-        <p class="text-3xl mt-2 font-bold">15</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-<!-- Footer -->
-<footer class="bg-blue-800 text-black pt-10 pb-6 px-4 sm:px-10">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-
-    <!-- Logo + About -->
-    <div>
-      <div class="flex items-center space-x-2 mb-3">
-        <img src="hotel.jpg" class="h-8 w-8" alt="Logo" />
-        <h2 class="text-xl font-bold">Shalom Hotel</h2>
-      </div>
-      <p class="text-gray-300 text-sm">
-        Luxury and comfort in one place. We offer top-notch hospitality with modern amenities.
-      </p>
-    </div>
-
-    <!-- Quick Links -->
-    <div>
-      <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
-      <ul class="space-y-2 text-sm text-gray-300">
-        <li><a href="#" class="hover:text-yellow-400">Home</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Rooms</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Bookings</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Info -->
-    <div>
-      <h3 class="text-lg font-semibold mb-3">Contact Us</h3>
-      <ul class="text-sm text-gray-300 space-y-2">
-        <li>📍 Nairobi, Kenya</li>
-        <li>📞 +254 712 345 678</li>
-        <li>📧 info@shalomhotel.com</li>
-      </ul>
-    </div>
-
-    <!-- Social Media -->
-    <div>
-      <h3 class="text-lg font-semibold mb-3">Follow Us</h3>
-      <div class="flex space-x-4 mt-2">
-       <a href="https://www.facebook.com/thee_wallance" target="_blank"> 
-        <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
-       </a>
-        <a href="https://x.com/MichaelWal29505/" target="_blank">
-   <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/>
-    </a>
-          <a href="https://www.instagram.com/thee_wallance/" target="_blank">
-      <img width="50" height="50" src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="instagram-new--v1"/>
-    </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Footer -->
-  <div class="mt-10 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
-    &copy; 2025 Shalom Hotel. All rights reserved.
-  </div>
-</footer>
-
-<SCRipt src="hotel.js"></SCRipt>
 </body>
 </html>
