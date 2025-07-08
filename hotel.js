@@ -6,3 +6,10 @@
       menu.classList.toggle('hidden');
     });
   
+    const toggle = document.getElementById("MenuToggle");
+  const Menu = document.getElementById("dashboardMenu");
+  toggle.addEventListener("click", () => {
+    Menu.classList.toggle("hidden");
+  });
+            
+    

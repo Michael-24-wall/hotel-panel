@@ -65,55 +65,123 @@
     </div>
   </nav>
 
-  <!-- ✅ Dashboard Layout -->
-  <div class="flex min-h-[calc(100vh-4rem)] md:flex-row flex-col">
+ 
+  
+   <!-- 🔵 Toggle Line under Navbar -->
+<div class="bg-blue-900 text-white cursor-pointer px-4 py-2 text-sm font-semibold" id="MenuToggle">
+  ☰ Dashboard Menu
+</div>
 
-    <!-- Sidebar -->
-    <aside class="w-full md:w-64 bg-blue-900 text-white p-6 space-y-4">
-      <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
-      <nav class="space-y-2">
-        <a href="#" class="block hover:text-yellow-300">🏠 Overview</a>
-        <a href="#" class="block hover:text-yellow-300">🛏 Rooms</a>
-        <a href="#" class="block hover:text-yellow-300">📅 Bookings</a>
-        <a href="#" class="block hover:text-yellow-300">👥 Customers</a>
-        <a href="#" class="block hover:text-yellow-300">📄 Reports</a>
-        <a href="#" class="block hover:text-yellow-300">⚙ Settings</a>
-      </nav>
-    </aside>
+<!-- 🔵 Dashboard Dropdown Menu (initially hidden) -->
+<div id="dashboardMenu" class="hidden bg-blue-800 text-white px-6 py-4 space-y-2 shadow-md">
+  <a href="#" class="block hover:text-yellow-300">🏠 Overview</a>
+  <a href="#" class="block hover:text-yellow-300">🛏 Rooms</a>
+  <a href="#" class="block hover:text-yellow-300">📅 Bookings</a>
+  <a href="#" class="block hover:text-yellow-300">👥 Customers</a>
+  <a href="#" class="block hover:text-yellow-300">📄 Reports</a>
+  <a href="#" class="block hover:text-yellow-300">⚙ Settings</a>
+</div>
 
-    <!-- Main Dashboard Content -->
-    <main class="flex-1 relative overflow-y-auto">
+<!-- ✅ Your dashboard content starts below -->
+<div class="p-6">
+  <h1 class="text-3xl font-bold text-gray-800">Welcome to Shalom Hotel Dashboard</h1>
+  <!-- Continue dashboard cards or content here -->
+</div>
+<!-- ✅ Website Body Background Image (starts below navbar and menu toggle) -->
+<div class="relative min-h-screen overflow-hidden">
 
-      <!-- Background Image -->
-      <div class="absolute inset-0 bg-cover bg-center z-0"
-           style="background-image: url('hotel.jpg');"></div>
-
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-
-      <!-- Foreground Content -->
-      <div class="relative z-20 p-6 text-white">
-        <h1 class="text-4xl font-bold mb-4">Welcome to the Dashboard</h1>
-        <p class="text-lg text-gray-300">Manage rooms, bookings, customers, and reports efficiently.</p>
-
-        <!-- Dashboard Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          <div class="bg-white bg-opacity-20 backdrop-blur p-6 rounded-lg shadow">
-            <h2 class="text-xl font-semibold">Total Rooms</h2>
-            <p class="text-3xl mt-2 font-bold">45</p>
-          </div>
-          <div class="bg-white bg-opacity-20 backdrop-blur p-6 rounded-lg shadow">
-            <h2 class="text-xl font-semibold">Booked</h2>
-            <p class="text-3xl mt-2 font-bold">30</p>
-          </div>
-          <div class="bg-white bg-opacity-20 backdrop-blur p-6 rounded-lg shadow">
-            <h2 class="text-xl font-semibold">Available</h2>
-            <p class="text-3xl mt-2 font-bold">15</p>
-          </div>
-        </div>
-      </div>
-    </main>
+  <!-- 🔵 Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center z-0"
+       style="background-image: url('hotel.jpg');">
   </div>
+
+  <!-- 🔵 Overlay (for readability) -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+  <!-- 🔵 Foreground Content -->
+  <div class="relative z-20 p-6 sm:p-10 text-white">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to Shalom Hotel</h1>
+    <p class="text-lg text-gray-200 mb-6 max-w-2xl">
+      Experience luxury, comfort, and hospitality. Manage bookings, view reports, and more from your hotel dashboard.
+    </p>
+
+    <!-- Example Stats / Sections -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
+        <h2 class="text-xl font-semibold">Total Rooms</h2>
+        <p class="text-3xl mt-2 font-bold">45</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
+        <h2 class="text-xl font-semibold">Booked</h2>
+        <p class="text-3xl mt-2 font-bold">30</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur">
+        <h2 class="text-xl font-semibold">Available</h2>
+        <p class="text-3xl mt-2 font-bold">15</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<!-- Footer -->
+<footer class="bg-blue-800 text-black pt-10 pb-6 px-4 sm:px-10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+    <!-- Logo + About -->
+    <div>
+      <div class="flex items-center space-x-2 mb-3">
+        <img src="hotel.jpg" class="h-8 w-8" alt="Logo" />
+        <h2 class="text-xl font-bold">Shalom Hotel</h2>
+      </div>
+      <p class="text-gray-300 text-sm">
+        Luxury and comfort in one place. We offer top-notch hospitality with modern amenities.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><a href="#" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Rooms</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Bookings</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Contact Us</h3>
+      <ul class="text-sm text-gray-300 space-y-2">
+        <li>📍 Nairobi, Kenya</li>
+        <li>📞 +254 712 345 678</li>
+        <li>📧 info@shalomhotel.com</li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Follow Us</h3>
+      <div class="flex space-x-4 mt-2">
+       <a href="https://www.facebook.com/thee_wallance" target="_blank"> 
+        <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+       </a>
+        <a href="https://x.com/MichaelWal29505/" target="_blank">
+   <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/>
+    </a>
+          <a href="https://www.instagram.com/thee_wallance/" target="_blank">
+      <img width="50" height="50" src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="instagram-new--v1"/>
+    </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="mt-10 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
+    &copy; 2025 Shalom Hotel. All rights reserved.
+  </div>
+</footer>
 
 <SCRipt src="hotel.js"></SCRipt>
 </body>
