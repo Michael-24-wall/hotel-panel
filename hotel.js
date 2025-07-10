@@ -141,3 +141,81 @@ function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('-translate-x-full');
       document.getElementById('pageContent').classList.toggle('lg:ml-64');
     }
+
+
+    function updateDashboardCounts() {
+  const checkedInGuests = guests.filter(g => g.status === 'Checked In').length;
+  document.getElementById('checkedInCount').textContent = checkedInGuests;
+}
+function checkin(index) {
+  guests[index].status = "Checked In";
+  renderGuestTable();
+  updateDashboardCounts(); // <== add this
+}
+
+function checkout(index) {
+  guests[index].status = "Pending";
+  renderGuestTable();
+  updateDashboardCounts(); // <== add this
+}
+
+function removeGuest(index) {
+  guests.splice(index, 1);
+  renderGuestTable();
+  updateDashboardCounts(); // <== add this
+}
+
+function addBooking(event) {
+  event.preventDefault();
+  const name = document.getElementById('guestName').value.trim();
+  const room = document.getElementById('roomNumber').value.trim();
+  if (name && room) {
+    guests.push({ name, room, status: "Pending" });
+    closeForm();
+    renderGuestTable();
+    updateDashboardCounts(); // <== add this
+  }
+}
+
+renderGuestTable();
+updateDashboardCounts();
+
+const maintenanceList = document.getElementById("maintenanceList");
+
+    const tasks = [
+      { room: "101", issue: "Air Conditioner", status: "Pending" },
+      { room: "204", issue: "Leaking Sink", status: "In Progress" },
+      { room: "305", issue: "Broken Light", status: "Pending" },
+      { room: "108", issue: "TV Not Working", status: "Fixed" },
+      { room: "410", issue: "Clogged Toilet", status: "Pending" },
+    ];
+
+    function getRandomStatus() {
+      const statuses = ["Pending", "In Progress", "Fixed"];
+      return statuses[Math.floor(Math.random() * statuses.length)];
+    }
+
+    function renderMaintenance() {
+      maintenanceList.innerHTML = "";
+      tasks.forEach(task => {
+        task.status = getRandomStatus();
+        const div = document.createElement("div");
+        div.className = "bg-white rounded-lg shadow p-4 flex justify-between items-center";
+
+        div.innerHTML = `
+          <div>
+            <h2 class="text-lg font-semibold">${task.issue}</h2>
+            <p class="text-sm text-gray-600">Room ${task.room}</p>
+          </div>
+          <span class="text-sm px-3 py-1 rounded-full ${
+            task.status === "Fixed" ? "bg-green-100 text-green-700" :
+            task.status === "In Progress" ? "bg-yellow-100 text-yellow-700" :
+            "bg-red-100 text-red-700"
+          }">${task.status}</span>
+        `;
+        maintenanceList.appendChild(div);
+      });
+    }
+
+    renderMaintenance();
+    setInterval(renderMaintenance, 5000); // Refresh every 5 seconds
