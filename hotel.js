@@ -246,3 +246,45 @@ const maintenanceList = document.getElementById("maintenanceList");
         alert("Please fill in both fields.");
       }
     }
+
+    const requestList = document.getElementById("requestList");
+
+    const sampleRequests = [
+      { type: "Room Cleaning", user: "John Doe", status: "Pending" },
+      { type: "Food Delivery", user: "Jane Smith", status: "In Progress" },
+      { type: "Maintenance", user: "Room 305", status: "Pending" },
+      { type: "Towel Request", user: "Room 212", status: "Resolved" },
+      { type: "Wake Up Call", user: "Michael", status: "Pending" },
+    ];
+
+    function getRandomStatus() {
+      const statuses = ["Pending", "In Progress", "Resolved"];
+      return statuses[Math.floor(Math.random() * statuses.length)];
+    }
+
+    function renderRequests() {
+      requestList.innerHTML = ""; // Clear
+      sampleRequests.forEach((req, i) => {
+        req.status = getRandomStatus(); // simulate status update
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-lg shadow p-4 flex justify-between items-center";
+
+        card.innerHTML = `
+          <div>
+            <h2 class="font-semibold text-lg">${req.type}</h2>
+            <p class="text-sm text-gray-600">Requested by: ${req.user}</p>
+          </div>
+          <span class="text-sm px-3 py-1 rounded-full ${
+            req.status === "Resolved" ? "bg-green-100 text-green-700" :
+            req.status === "In Progress" ? "bg-yellow-100 text-yellow-700" :
+            "bg-red-100 text-red-700"
+          }">
+            ${req.status}
+          </span>
+        `;
+        requestList.appendChild(card);
+      });
+    }
+
+    renderRequests();
+    setInterval(renderRequests, 5000); // Update every 5 seconds
