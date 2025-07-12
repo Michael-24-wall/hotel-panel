@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hotel Management</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-  // Check login status
-  if (!localStorage.getItem("loggedIn")) {
-    window.location.href = "login.html"; // redirect to login/register page
-  }
-</script>
 
-  
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+
 </head>
+
 <body class="bg-gray-100">
-<p id="checkedInCount" class="text-2xl font-bold text-blue-800">18</p>
+  <p id="checkedInCount" class="text-2xl font-bold text-blue-800">18</p>
 
   <!-- Sidebar -->
-  <div id="sidebar" class="bg-gray-900 text-white w-64 h-full fixed top-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40">
+  <div id="sidebar"
+    class="bg-gray-900 text-white w-64 h-full fixed top-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40">
     <ul class="space-y-4 p-6 text-white mt-16">
-    
-            <li><a href="fontdesk.html" class="hover:underline hover:text-blue-600 cursor-pointer">Fontdesk</a></li>
-            <li><a href="rooms.html" class="hover:underline hover:text-blue-600 cursor-pointer">Rooms</a></li>
-            <li><a href="request.html" class="hover:underline hover:text-blue-600 cursor-pointer">Requests</a></li>
-            <li><a href="progress.html" class="hover:underline hover:text-blue-600 cursor-pointer">Progress</a></li>
-            <li><a href="payment.html" class="hover:underline hover:text-blue-600 cursor-pointer">Payments</a></li>
-            <li><a href="maintenance.html" class="hover:underline hover:text-blue-600 cursor-pointer">Maintenance</a></li>
-            <li><a href="Settings.html"  class="hover:underline hover:text-blue-600 cursor-pointer">Settings</a></li>
-          <button onclick="logout()">Logout</button>
-<script>
-  function logout() {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "login.html";
-  }
-</script>
+
+      <li><a href="fontdesk.html" class="hover:underline hover:text-blue-600 cursor-pointer">Fontdesk</a></li>
+      <li><a href="rooms.html" class="hover:underline hover:text-blue-600 cursor-pointer">Rooms</a></li>
+      <li><a href="request.html" class="hover:underline hover:text-blue-600 cursor-pointer">Requests</a></li>
+      <li><a href="progress.html" class="hover:underline hover:text-blue-600 cursor-pointer">Progress</a></li>
+      <li><a href="payment.html" class="hover:underline hover:text-blue-600 cursor-pointer">Payments</a></li>
+      <li><a href="maintenance.html" class="hover:underline hover:text-blue-600 cursor-pointer">Maintenance</a></li>
+      <li><a href="Settings.html" class="hover:underline hover:text-blue-600 cursor-pointer">Settings</a></li>
+      <button onclick="logout()">Logout</button>
+      <script>
+        function logout() {
+          localStorage.removeItem("loggedIn");
+          window.location.href = "login.html";
+        }
+      </script>
 
 
 
@@ -47,7 +50,8 @@
     <nav class="bg-gray-900 shadow-md fixed w-full top-0 z-50 flex items-center justify-between px-4 py-3">
       <div class="flex items-center gap-4">
         <button onclick="toggleSidebar()" class="text-white focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
@@ -56,7 +60,8 @@
     </nav>
 
     <!-- Dashboard -->
-    <div class="pt-24 px-4 sm:px-6 lg:px-8 min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('hotel.jpg');">
+    <div class="pt-24 px-4 sm:px-6 lg:px-8 min-h-screen bg-cover bg-center bg-no-repeat"
+      style="background-image: url('hotel.jpg');">
       <div class="max-w-7xl mx-auto mb-8 bg-white/80 backdrop-blur-md p-6 rounded-xl shadow">
         <h2 class="text-2xl font-bold text-blue-900">Welcome Back, Manager 👋</h2>
         <p class="text-gray-700 mt-2">Here’s what’s happening at your hotel today.</p>
@@ -108,7 +113,8 @@
         <div>
           <h4 class="text-xl font-semibold mb-4">🏨 Wallance Hotel</h4>
           <p class="text-sm text-gray-300">
-            Welcome to Wallance Hotel Management System. A smart way to manage guests, rooms, payments and services all in one dashboard.
+            Welcome to Wallance Hotel Management System. A smart way to manage guests, rooms, payments and services all
+            in one dashboard.
           </p>
         </div>
         <div>
@@ -122,7 +128,7 @@
             <li><a href="maintenance.html" class="hover:underline">Maintenance</a></li>
           </ul>
         </div>
-       
+
       </div>
       <div class="text-center text-sm text-gray-400 py-4 border-t border-gray-700">
         &copy; 2025 Shalom Hotel. All rights reserved.
@@ -133,4 +139,5 @@
 
   <script src="hotel.js"></script>
 </body>
+
 </html>
