@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login / Register</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="text" id="loginUser" placeholder="Username"><br>
+  <input type="password" id="loginPass" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+
+  <h2>Register</h2>
+  <input type="text" id="registerUser" placeholder="New Username"><br>
+  <input type="password" id="registerPass" placeholder="New Password"><br>
+  <button onclick="register()">Register</button>
+
+  <script>
+    function login() {
+      const user = document.getElementById("loginUser").value;
+      const pass = document.getElementById("loginPass").value;
+      const savedUser = localStorage.getItem("username");
+      const savedPass = localStorage.getItem("password");
+
+      if (user === savedUser && pass === savedPass) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("Wrong username or password.");
+      }
+    }
+
+    function register() {
+      const newUser = document.getElementById("registerUser").value;
+      const newPass = document.getElementById("registerPass").value;
+
+      if (newUser && newPass) {
+        localStorage.setItem("username", newUser);
+        localStorage.setItem("password", newPass);
+        alert("Registered successfully! You can now log in.");
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
+  </script>
+</body>
+</html>

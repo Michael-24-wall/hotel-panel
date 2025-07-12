@@ -219,3 +219,30 @@ const maintenanceList = document.getElementById("maintenanceList");
 
     renderMaintenance();
     setInterval(renderMaintenance, 5000); // Refresh every 5 seconds
+
+     function login() {
+      const user = document.getElementById("loginUser").value;
+      const pass = document.getElementById("loginPass").value;
+      const savedUser = localStorage.getItem("username");
+      const savedPass = localStorage.getItem("password");
+
+      if (user === savedUser && pass === savedPass) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("Wrong username or password.");
+      }
+    }
+
+    function register() {
+      const newUser = document.getElementById("registerUser").value;
+      const newPass = document.getElementById("registerPass").value;
+
+      if (newUser && newPass) {
+        localStorage.setItem("username", newUser);
+        localStorage.setItem("password", newPass);
+        alert("Registered successfully! You can now log in.");
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
