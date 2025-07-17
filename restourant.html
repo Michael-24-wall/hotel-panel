@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shalom Restaurant Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white px-6 py-4">
+    <h1 class="text-2xl font-bold">Shalom - Restaurant Management</h1>
+    <p class="text-sm text-gray-300">Manage Baraza Café and LaCantina Restaurant</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-4 md:p-6">
+
+    <!-- Restaurant Switch Tabs -->
+    <div class="flex flex-wrap gap-4 mb-6">
+      <button onclick="switchRestaurant('baraza')" id="barazaBtn"
+              class="bg-gray-800 text-white px-4 py-2 rounded">
+        Baraza Café
+      </button>
+      <button onclick="switchRestaurant('lacantina')" id="lacantinaBtn"
+              class="bg-gray-700 text-white px-4 py-2 rounded">
+        LaCantina Restaurant
+      </button>
+    </div>
+
+    <!-- Restaurant Content -->
+    <div id="restaurantContent">
+
+      <!-- Menu Management -->
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4" id="restaurantTitle">Baraza Café Menu Management</h2>
+        <form id="menuForm" class="grid md:grid-cols-2 gap-4">
+          <input type="text" id="dishName" placeholder="Dish Name" class="w-full p-2 border rounded" required>
+          <input type="text" id="category" placeholder="Category" class="w-full p-2 border rounded" required>
+          <input type="number" id="price" placeholder="Price" class="w-full p-2 border rounded" required>
+          <select id="availability" class="w-full p-2 border rounded">
+            <option>Available</option>
+            <option>Out of Stock</option>
+          </select>
+          <button type="submit"
+                  class="col-span-2 bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition">
+            Add Dish
+          </button>
+        </form>
+      </section>
+
+      <!-- Create Order -->
+      <section class="mb-10">
+        <h2 class="text-xl font-semibold mb-4">Create Order - <span id="restaurantName">Baraza Café</span></h2>
+        <form id="orderForm" class="grid md:grid-cols-2 gap-4">
+          <input type="text" id="tableNumber" placeholder="Room/Table Number" class="w-full p-2 border rounded" required>
+          <input type="text" id="orderItems" placeholder="Ordered Items (e.g. 1x Tea, 2x Mandazi)" class="w-full p-2 border rounded" required>
+          <button type="submit"
+                  class="col-span-2 bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition">
+            Submit Order
+          </button>
+        </form>
+      </section>
+
+      <!-- Orders Table -->
+      <section>
+        <h2 class="text-xl font-semibold mb-4">Active Orders - <span id="orderTitle">Baraza Café</span></h2>
+        <div class="overflow-x-auto bg-white rounded shadow">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="px-4 py-2">Order ID</th>
+                <th class="px-4 py-2">Room/Table</th>
+                <th class="px-4 py-2">Items</th>
+                <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTable">
+              <!-- Orders will appear here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    let currentRestaurant = "baraza";
+    let orderId = 1;
+
+    const orders = {
+      baraza: [],
+      lacantina: []
+    };
+
+    function switchRestaurant(name) {
+      currentRestaurant = name;
+
+      document.getElementById("restaurantTitle").textContent =
+        name === "baraza" ? "Baraza Café Menu Management" : "LaCantina Restaurant Menu Management";
+
+      document.getElementById("restaurantName").textContent =
+        name === "baraza" ? "Baraza Café" : "LaCantina";
+
+      document.getElementById("orderTitle").textContent =
+        name === "baraza" ? "Baraza Café" : "LaCantina";
+
+      document.getElementById("barazaBtn").classList.toggle("bg-gray-800", name === "baraza");
+      document.getElementById("barazaBtn").classList.toggle("bg-gray-700", name !== "baraza");
+      document.getElementById("lacantinaBtn").classList.toggle("bg-gray-800", name === "lacantina");
+      document.getElementById("lacantinaBtn").classList.toggle("bg-gray-700", name !== "lacantina");
+
+      renderOrders();
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const table = document.getElementById("tableNumber").value.trim();
+      const items = document.getElementById("orderItems").value.trim();
+
+      if (!table || !items) return;
+
+      orders[currentRestaurant].push({
+        id: orderId++,
+        table,
+        items,
+        status: "In Kitchen"
+      });
+
+      this.reset();
+      renderOrders();
+    });
+
+    function renderOrders() {
+      const ordersTable = document.getElementById("ordersTable");
+      ordersTable.innerHTML = "";
+
+      orders[currentRestaurant].forEach(order => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td class="px-4 py-2">#${order.id}</td>
+          <td class="px-4 py-2">${order.table}</td>
+          <td class="px-4 py-2">${order.items}</td>
+          <td class="px-4 py-2 text-yellow-600">${order.status}</td>
+          <td class="px-4 py-2">
+            <button onclick="markReady(${order.id})"
+              class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700">
+              Mark Ready
+            </button>
+          </td>
+        `;
+        ordersTable.appendChild(row);
+      });
+    }
+
+    function markReady(id) {
+      const order = orders[currentRestaurant].find(o => o.id === id);
+      if (order) {
+        order.status = "Ready";
+        renderOrders();
+      }
+    }
+
+    document.getElementById("menuForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Menu item added (simulated). You can connect to a backend later.");
+      this.reset();
+    });
+
+    // Initial load
+    renderOrders();
+  </script>
+</body>
+</html>

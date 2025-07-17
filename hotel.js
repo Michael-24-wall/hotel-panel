@@ -288,3 +288,5 @@ const maintenanceList = document.getElementById("maintenanceList");
 
     renderRequests();
     setInterval(renderRequests, 5000); // Update every 5 seconds
+
+    

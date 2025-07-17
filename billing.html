@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hotel Billing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen flex flex-col items-center justify-center p-6">
+
+  <div class="w-full max-w-md bg-white p-6 rounded shadow-md">
+    <h1 class="text-2xl font-bold text-gray-800 text-center mb-4">Hotel Billing</h1>
+    <form id="billingForm" class="space-y-3">
+      <input type="text" id="guestName" placeholder="Guest Name" required class="w-full p-2 border rounded bg-gray-100" />
+      <input type="number" id="roomCharge" placeholder="Room Charge" required class="w-full p-2 border rounded bg-gray-100" />
+      <input type="number" id="restaurantCharge" placeholder="Restaurant Charge" required class="w-full p-2 border rounded bg-gray-100" />
+      <input type="number" id="laundryCharge" placeholder="Laundry Charge" class="w-full p-2 border rounded bg-gray-100" />
+      <input type="number" id="otherCharge" placeholder="Other Charges" class="w-full p-2 border rounded bg-gray-100" />
+      <button type="submit" class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700">Generate Receipt</button>
+    </form>
+  </div>
+
+  <div id="receiptModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white w-full max-w-md p-6 rounded shadow-md relative">
+      <button id="closeModal" class="absolute top-2 right-3 text-xl text-gray-500 hover:text-gray-800">&times;</button>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Receipt</h2>
+      <div id="receiptContent" class="text-gray-700 space-y-2"></div>
+    </div>
+  </div>
+
+  <script src="billing.js"></script>
+
+</body>
+</html>
