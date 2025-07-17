@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-900 min-h-screen flex items-center justify-center px-4 py-6">
 
-  <!-- Billing Form Container -->
   <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
     <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Hotel Billing</h1>
     
@@ -29,7 +28,6 @@
     </form>
   </div>
 
-  <!-- Receipt Modal -->
   <div id="receiptModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
     <div class="bg-white w-full max-w-md p-6 rounded shadow-lg relative">
       <button id="closeModal" class="absolute top-2 right-3 text-xl text-gray-500 hover:text-gray-800">&times;</button>
@@ -38,43 +36,7 @@
     </div>
   </div>
 
-  <!-- JS -->
-  <script>
-    const form = document.getElementById("billingForm");
-    const modal = document.getElementById("receiptModal");
-    const receiptContent = document.getElementById("receiptContent");
-    const closeModal = document.getElementById("closeModal");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const guest = document.getElementById("guestName").value;
-      const roomNo = document.getElementById("roomNumber").value;
-      const room = parseFloat(document.getElementById("roomCharge").value) || 0;
-      const food = parseFloat(document.getElementById("restaurantCharge").value) || 0;
-      const laundry = parseFloat(document.getElementById("laundryCharge").value) || 0;
-      const other = parseFloat(document.getElementById("otherCharge").value) || 0;
-      const total = room + food + laundry + other;
-
-      receiptContent.innerHTML = `
-        <p><strong>Guest:</strong> ${guest}</p>
-        <p><strong>Room:</strong> ${roomNo}</p>
-        <p>Room Charge: KES ${room.toFixed(2)}</p>
-        <p>Restaurant: KES ${food.toFixed(2)}</p>
-        <p>Laundry: KES ${laundry.toFixed(2)}</p>
-        <p>Other: KES ${other.toFixed(2)}</p>
-        <hr />
-        <p><strong>Total:</strong> KES ${total.toFixed(2)}</p>
-        <p class="text-xs text-gray-500 mt-2">${new Date().toLocaleString()}</p>
-      `;
-
-      modal.classList.remove("hidden");
-    });
-
-    closeModal.addEventListener("click", () => {
-      modal.classList.add("hidden");
-    });
-  </script>
+  <script src="billing.js"></script>
 
 </body>
 </html>
