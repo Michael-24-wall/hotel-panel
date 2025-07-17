@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Login / Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h2>Login</h2>
-  <input type="text" id="loginUser" placeholder="Username"><br>
-  <input type="password" id="loginPass" placeholder="Password"><br>
-  <button onclick="login()">Login</button>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
 
-  <h2>Register</h2>
-  <input type="text" id="registerUser" placeholder="New Username"><br>
-  <input type="password" id="registerPass" placeholder="New Password"><br>
-  <button onclick="register()">Register</button>
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <!-- Login Section -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Login</h2>
+      <input type="text" id="loginUser" placeholder="Username"
+             class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+      <input type="password" id="loginPass" placeholder="Password"
+             class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+      <button onclick="login()"
+              class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-md transition duration-200">
+        Login
+      </button>
+    </div>
+
+    <hr class="my-6 border-gray-300">
+
+    <!-- Register Section -->
+    <div>
+      <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Register</h2>
+      <input type="text" id="registerUser" placeholder="New Username"
+             class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+      <input type="password" id="registerPass" placeholder="New Password"
+             class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+      <button onclick="register()"
+              class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-md transition duration-200">
+        Register
+      </button>
+    </div>
+  </div>
 
   <script>
     function login() {
