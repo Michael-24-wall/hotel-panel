@@ -114,7 +114,7 @@
       }
     }
 
-    // Initial render
+  
     renderGuestTable();
 
     function toggleSidebar() {
@@ -122,7 +122,7 @@
     const pageContent = document.getElementById('pageContent');
     
     sidebar.classList.toggle('-translate-x-full');
-    pageContent.classList.toggle('lg:ml-64'); // Move body on large screens
+    pageContent.classList.toggle('lg:ml-64'); 
   }
 
   window.addEventListener('click', function (e) {
@@ -150,19 +150,19 @@ function toggleSidebar() {
 function checkin(index) {
   guests[index].status = "Checked In";
   renderGuestTable();
-  updateDashboardCounts(); // <== add this
+  updateDashboardCounts()
 }
 
 function checkout(index) {
   guests[index].status = "Pending";
   renderGuestTable();
-  updateDashboardCounts(); // <== add this
+  updateDashboardCounts(); 
 }
 
 function removeGuest(index) {
   guests.splice(index, 1);
   renderGuestTable();
-  updateDashboardCounts(); // <== add this
+  updateDashboardCounts(); 
 }
 
 function addBooking(event) {
@@ -173,7 +173,7 @@ function addBooking(event) {
     guests.push({ name, room, status: "Pending" });
     closeForm();
     renderGuestTable();
-    updateDashboardCounts(); // <== add this
+    updateDashboardCounts(); 
   }
 }
 
