@@ -218,7 +218,7 @@ const maintenanceList = document.getElementById("maintenanceList");
     }
 
     renderMaintenance();
-    setInterval(renderMaintenance, 5000); // Refresh every 5 seconds
+    setInterval(renderMaintenance, 5000); 
 
      function login() {
       const user = document.getElementById("loginUser").value;
@@ -263,9 +263,9 @@ const maintenanceList = document.getElementById("maintenanceList");
     }
 
     function renderRequests() {
-      requestList.innerHTML = ""; // Clear
+      requestList.innerHTML = ""; 
       sampleRequests.forEach((req, i) => {
-        req.status = getRandomStatus(); // simulate status update
+        req.status = getRandomStatus(); 
         const card = document.createElement("div");
         card.className = "bg-white rounded-lg shadow p-4 flex justify-between items-center";
 
@@ -287,6 +287,6 @@ const maintenanceList = document.getElementById("maintenanceList");
     }
 
     renderRequests();
-    setInterval(renderRequests, 5000); // Update every 5 seconds
+    setInterval(renderRequests, 5000); 
 
     

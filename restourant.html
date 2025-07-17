@@ -11,28 +11,25 @@
   <!-- Header -->
   <header class="bg-gray-900 text-white px-6 py-4">
     <h1 class="text-2xl font-bold">Shalom - Restaurant Management</h1>
-    <p class="text-sm text-gray-300">Manage Baraza Café and LaCantina Restaurant</p>
+    <p class="text-sm text-gray-300">Manage Baraza Cafe` and LaCantina Restaurant</p>
   </header>
 
-  <!-- Main Content -->
+
   <main class="p-4 md:p-6">
 
-    <!-- Restaurant Switch Tabs -->
     <div class="flex flex-wrap gap-4 mb-6">
       <button onclick="switchRestaurant('baraza')" id="barazaBtn"
               class="bg-gray-800 text-white px-4 py-2 rounded">
-        Baraza Café
+        Baraza Cafe`
       </button>
       <button onclick="switchRestaurant('lacantina')" id="lacantinaBtn"
               class="bg-gray-700 text-white px-4 py-2 rounded">
         LaCantina Restaurant
       </button>
     </div>
-
-    <!-- Restaurant Content -->
     <div id="restaurantContent">
 
-      <!-- Menu Management -->
+      
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-4" id="restaurantTitle">Baraza Café Menu Management</h2>
         <form id="menuForm" class="grid md:grid-cols-2 gap-4">
@@ -50,9 +47,8 @@
         </form>
       </section>
 
-      <!-- Create Order -->
       <section class="mb-10">
-        <h2 class="text-xl font-semibold mb-4">Create Order - <span id="restaurantName">Baraza Café</span></h2>
+        <h2 class="text-xl font-semibold mb-4">Create Order - <span id="restaurantName">Baraza Cafe`</span></h2>
         <form id="orderForm" class="grid md:grid-cols-2 gap-4">
           <input type="text" id="tableNumber" placeholder="Room/Table Number" class="w-full p-2 border rounded" required>
           <input type="text" id="orderItems" placeholder="Ordered Items (e.g. 1x Tea, 2x Mandazi)" class="w-full p-2 border rounded" required>
@@ -61,11 +57,11 @@
             Submit Order
           </button>
         </form>
-      </section>
+      </section>  
 
-      <!-- Orders Table -->
+      
       <section>
-        <h2 class="text-xl font-semibold mb-4">Active Orders - <span id="orderTitle">Baraza Café</span></h2>
+        <h2 class="text-xl font-semibold mb-4">Active Orders - <span id="orderTitle">Baraza Cafe`</span></h2>
         <div class="overflow-x-auto bg-white rounded shadow">
           <table class="w-full text-sm text-left">
             <thead class="bg-gray-200">
@@ -78,7 +74,7 @@
               </tr>
             </thead>
             <tbody id="ordersTable">
-              <!-- Orders will appear here -->
+
             </tbody>
           </table>
         </div>
@@ -170,7 +166,7 @@
       this.reset();
     });
 
-    // Initial load
+
     renderOrders();
   </script>
 </body>
