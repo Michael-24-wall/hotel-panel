@@ -19,21 +19,21 @@
       document.getElementById('registerForm').classList.toggle('hidden', tab !== 'register');
     }
 
-    function loginUser(event) {
-      event.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-      alert(`Logged in as: ${email}`);
-      closeAuthModal();
-    }
+    // function loginUser(event) {
+    //   event.preventDefault();
+    //   const email = document.getElementById('loginEmail').value;
+    //   const password = document.getElementById('loginPassword').value;
+    //   alert(`Logged in as: ${email}`);
+    //   closeAuthModal();
+    // }
 
-    function registerUser(event) {
-      event.preventDefault();
-      const email = document.getElementById('registerEmail').value;
-      const password = document.getElementById('registerPassword').value;
-      alert(`Registered as: ${email}`);
-      closeAuthModal();
-    }
+    // function registerUser(event) {
+    //   event.preventDefault();
+    //   const email = document.getElementById('registerEmail').value;
+    //   const password = document.getElementById('registerPassword').value;
+    //   alert(`Registered as: ${email}`);
+    //   closeAuthModal();
+    // }
     let guests = [
       { name: "Jane Wanjiku", room: 201, status: "Checked In" },
       { name: "Kevin Otieno", room: 105, status: "Pending" }
@@ -289,4 +289,34 @@ const maintenanceList = document.getElementById("maintenanceList");
     renderRequests();
     setInterval(renderRequests, 5000); 
 
-    
+     const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const toggleLogin = document.getElementById("toggleLogin");
+    const toggleRegister = document.getElementById("toggleRegister");
+    const formTitle = document.getElementById("formTitle");
+
+    toggleRegister.addEventListener("click", () => {
+      loginForm.classList.add("hidden");
+      registerForm.classList.remove("hidden");
+      toggleRegister.classList.add("hidden");
+      toggleLogin.classList.remove("hidden");
+      formTitle.textContent = "Register";
+    });
+
+    toggleLogin.addEventListener("click", () => {
+      registerForm.classList.add("hidden");
+      loginForm.classList.remove("hidden");
+      toggleLogin.classList.add("hidden");
+      toggleRegister.classList.remove("hidden");
+      formTitle.textContent = "Login";
+    });
+
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Logged in successfully (demo)");
+    });
+
+    registerForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Registered successfully (demo)");
+    });
