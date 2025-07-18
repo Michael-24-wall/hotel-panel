@@ -7,16 +7,17 @@
   <title>Hotel Management</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+  // Redirect to login.html if not logged in
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
-    if (!localStorage.getItem("loggedIn")) {
-      window.location.href = "login.html";
-    }
-  </script>
 
 
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-900">
   <p id="checkedInCount" class="text-2xl font-bold text-blue-800">18</p>
 
   <!-- Sidebar -->
@@ -33,13 +34,18 @@
       <li><a href="maintenance.html" class="hover:underline hover:text-blue-600 cursor-pointer">Maintenance</a></li>
       <li><a href="billing.html" class="hover:underline hover:text-blue-600 cursor-pointer">Billings</a></li>
       <li><a href="Settings.html" class="hover:underline hover:text-blue-600 cursor-pointer">Settings</a></li>
-      <button onclick="logout()">Logout</button>
-      <script>
-        function logout() {
-          localStorage.removeItem("loggedIn");
-          window.location.href = "login.html";
-        }
-      </script>
+    
+      <button onclick="logout()" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">
+  Logout
+</button>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedIn"); 
+    window.location.href = "login.html"; 
+  }
+</script>
+
 
 
 

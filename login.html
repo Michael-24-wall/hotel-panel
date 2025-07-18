@@ -1,70 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login & Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Hotel System</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-200 min-h-screen flex items-center justify-center px-4">
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md p-8 bg-white shadow-lg rounded-xl space-y-6">
+    <div class="flex justify-around mb-4">
+      <button id="showLogin" class="bg-gray-400 text-white px-4 py-2 rounded">Loginn</button>
+      <button id="showRegister" class="bg-gray-400 text-white px-4 py-2 rounded">Register</button>
+    </div>
 
-  <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-    <h2 id="formTitle" class="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
 
-    <!-- Login Form -->
     <form id="loginForm" class="space-y-4">
-      <input type="text" id="loginUsername" placeholder="Username" required class="w-full p-2 border rounded bg-gray-100" />
-      <input type="password" id="loginPassword" placeholder="Password" required class="w-full p-2 border rounded bg-gray-100" />
-      <button type="submit" class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700">Login</button>
+      <h2 class="text-2xl text-center font-bold text-black">Login</h2>
+      <input type="text" id="loginUser" placeholder="Username" class="w-full border p-2 rounded" required />
+      <input type="password" id="loginPass" placeholder="Password" class="w-full border p-2 rounded" required />
+      <button type="submit" class="bg-black w-full py-2 text-white rounded hover:bg-grey-900">Login</button>
     </form>
 
-    <!-- Register Form -->
+
     <form id="registerForm" class="space-y-4 hidden">
-      <input type="text" id="regUsername" placeholder="Username" required class="w-full p-2 border rounded bg-gray-100" />
-      <input type="email" id="regEmail" placeholder="Email" required class="w-full p-2 border rounded bg-gray-100" />
-      <input type="password" id="regPassword" placeholder="Password" required class="w-full p-2 border rounded bg-gray-100" />
-      <button type="submit" class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700">Register</button>
+      <h2 class="text-2xl text-center font-bold text-black">Register</h2>
+      <input type="text" id="regUser" placeholder="New Username" class="w-full border p-2 rounded" required />
+      <input type="password" id="regPass" placeholder="New Password" class="w-full border p-2 rounded" required />
+      <button type="submit" class="bg-black w-full py-2 text-white rounded hover:bg-grey-900">Register</button>
     </form>
-
-    <!-- Toggle Buttons -->
-    <p class="text-center mt-4 text-sm text-gray-600">
-      <span id="toggleLogin" class="cursor-pointer text-blue-600 hover:underline hidden">Already have an account? Login</span>
-      <span id="toggleRegister" class="cursor-pointer text-blue-600 hover:underline">Don't have an account? Register</span>
-    </p>
   </div>
 
   <script>
+    const showLogin = document.getElementById("showLogin");
+    const showRegister = document.getElementById("showRegister");
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("registerForm");
-    const toggleLogin = document.getElementById("toggleLogin");
-    const toggleRegister = document.getElementById("toggleRegister");
-    const formTitle = document.getElementById("formTitle");
+    showLogin.onclick = () => {
+      loginForm.classList.remove("hidden");
+      registerForm.classList.add("hidden");
+      showLogin.classList.replace("bg-gray-400", "bg-blue-500");
+      showRegister.classList.replace("bg-blue-500", "bg-gray-400");
+    };
 
-    toggleRegister.addEventListener("click", () => {
+    showRegister.onclick = () => {
       loginForm.classList.add("hidden");
       registerForm.classList.remove("hidden");
-      toggleRegister.classList.add("hidden");
-      toggleLogin.classList.remove("hidden");
-      formTitle.textContent = "Register";
-    });
-
-    toggleLogin.addEventListener("click", () => {
-      registerForm.classList.add("hidden");
-      loginForm.classList.remove("hidden");
-      toggleLogin.classList.add("hidden");
-      toggleRegister.classList.remove("hidden");
-      formTitle.textContent = "Login";
-    });
-
-    loginForm.addEventListener("submit", function(e) {
+      showRegister.classList.replace("bg-gray-400", "bg-blue-500");
+      showLogin.classList.replace("bg-blue-500", "bg-gray-400");
+    };
+    registerForm.onsubmit = (e) => {
       e.preventDefault();
-      alert("Logged in successfully (demo)");
-    });
-
-    registerForm.addEventListener("submit", function(e) {
+      const username = document.getElementById("regUser").value;
+      const password = document.getElementById("regPass").value;
+      localStorage.setItem("user", JSON.stringify({ username, password }));
+      alert("Registered successfully!Mavitu👌");
+      showLogin.click(); 
+    };
+    loginForm.onsubmit = (e) => {
       e.preventDefault();
-      alert("Registered successfully (demo)");
-    });
+      const inputUser = document.getElementById("loginUser").value;
+      const inputPass = document.getElementById("loginPass").value;
+      const stored = JSON.parse(localStorage.getItem("user"));
+
+      if (stored && inputUser === stored.username && inputPass === stored.password) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("Wrong username or password! do it again mkuuu ;🤣😂😁");
+      }
+    };
   </script>
 </body>
 </html>
