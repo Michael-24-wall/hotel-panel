@@ -54,7 +54,7 @@
       const username = document.getElementById("regUser").value;
       const password = document.getElementById("regPass").value;
       localStorage.setItem("user", JSON.stringify({ username, password }));
-      alert("Registered successfully!Mavitu👌");
+     
       showLogin.click(); 
     };
     loginForm.onsubmit = (e) => {
@@ -67,7 +67,7 @@
         localStorage.setItem("loggedIn", "true");
         window.location.href = "index.html";
       } else {
-        alert("Wrong username or password! do it again mkuuu ;🤣😂😁");
+        // alert("Wrong username or password! do it again mkuuu ;🤣😂😁");
       }
     };
   </script>
